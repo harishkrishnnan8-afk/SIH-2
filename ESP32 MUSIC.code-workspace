@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../ESP32 MUSIC"
+		},
+		{
+			"name": "TFT_Music_Player",
+			"path": "../../Documents/PlatformIO/Projects/TFT_Music_Player"
+		}
+	],
+	"settings": {}
+}
