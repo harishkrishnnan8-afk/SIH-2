@@ -1,9 +1,13 @@
 // Central API client for the APAAR backend (/api/v1).
 // UI reads data only via src/lib/services.
 // Flip BACKEND_CONNECTED to swap between real backend and synthetic fallback.
-const envApiBase = (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE_URL)
+let envApiBase = (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE_URL)
   ? String(import.meta.env.VITE_API_BASE_URL).trim()
   : "";
+
+if (envApiBase && !envApiBase.startsWith("http://") && !envApiBase.startsWith("https://") && !envApiBase.startsWith("/")) {
+  envApiBase = `https://${envApiBase}`;
+}
 
 export const API_BASE = envApiBase
   ? (envApiBase.replace(/\/+$/, "").endsWith("/api/v1")
