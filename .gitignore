@@ -35,7 +35,20 @@ dist-ssr
 .run/
 *.pid
 
-# Python & Database
+# Python, Caches & Database
 __pycache__/
 *.py[cod]
 backend/.venv/
+.pytest_cache/
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Deployment platforms
+.vercel
+
