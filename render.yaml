@@ -39,7 +39,7 @@ services:
     runtime: node
     region: oregon
     plan: free
-    buildCommand: npm install --include=dev && NITRO_PRESET=node-server npm run build
+    buildCommand: curl -fsSL https://bun.sh/install | bash && export PATH="$HOME/.bun/bin:$PATH" && bun install && NITRO_PRESET=node-server bun run build
     startCommand: node .output/server/index.mjs
     envVars:
       - key: NODE_VERSION
